@@ -157,6 +157,10 @@ case "$domain" in
 	set -- "$1" "$(mon2moy $2)" "$3"
 	expiration="$1-$2-$3"
 	;;
+*.org) 
+	# Registry Expiry Date: 2021-09-10T01:53:14Z
+	expiration=$(echo "$out" | sed -rne 's;Registry Expiry Date:[^0-9]+([0-9]{4}-[0-9]{2}-[0-9]{2})T[0-9:Z]+;\1;p' | head -n1)
+	;;
 *)
 	# Expiration Date: 21-sep-2018
 	expiration=$(echo "$out" | awk -F: '/Expiration Date:/{print substr($0, length($1) + 2); exit}')

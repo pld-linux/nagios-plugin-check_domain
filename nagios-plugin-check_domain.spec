@@ -1,7 +1,7 @@
 %define		plugin	check_domain
 Summary:	Nagios plugin for checking a domain name expiration date
 Name:		nagios-plugin-%{plugin}
-Version:	1.2.6
+Version:	1.2.7
 Release:	1
 License:	GPL
 Group:		Networking

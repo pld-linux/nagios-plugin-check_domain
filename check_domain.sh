@@ -160,7 +160,7 @@ case "$domain" in
 *)
 	# Expiration Date: 21-sep-2018
 	# Registry Expiry Date: 2015-08-03T04:00:00Z
-	expiration=$(echo "$out" | awk -F: '/Expir(ation|y) Date:/{print substr($0, length($1) + 2); exit}')
+	expiration=$(echo "$out" | awk -F: '/Expir(ation|y) Date:/{print substr($0, length($1) + 2); exit}' | tr -d Z)
 	;;
 esac
 

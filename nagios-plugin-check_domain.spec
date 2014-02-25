@@ -1,13 +1,13 @@
 %define		plugin	check_domain
 Summary:	Nagios plugin for checking a domain name expiration date
 Name:		nagios-plugin-%{plugin}
-Version:	1.2.7
+Version:	1.2.8
 Release:	1
 License:	GPL
 Group:		Networking
-Source0:	%{plugin}.sh
-Source1:	%{plugin}.cfg
-URL:		http://www.tomas.cat/blog/en/checking-domain-name-expiration-date-checkdomain
+Source0:	https://github.com/glensc/nagios-plugin-check_domain/archive/v%{version}/%{plugin}-%{version}.tar.gz
+# Source0-md5:	bce4330d80e1a6a8a5ecc9ef3aeaf0c3
+URL:		https://github.com/glensc/nagios-plugin-check_domain
 Requires:	whois
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -19,14 +19,13 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Nagios pluging for checking a domain name expiration date.
 
 %prep
-%setup -qcT
-install -p %{SOURCE0} %{plugin}
+%setup -q
 
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_sysconfdir},%{plugindir}}
-install -p %{plugin} $RPM_BUILD_ROOT%{plugindir}/%{plugin}
-sed -e 's,@plugindir@,%{plugindir},' %{SOURCE1} > $RPM_BUILD_ROOT%{_sysconfdir}/%{plugin}.cfg
+install -p %{plugin}.sh $RPM_BUILD_ROOT%{plugindir}/%{plugin}
+sed -e 's,@plugindir@,%{plugindir},' %{plugin}.cfg > $RPM_BUILD_ROOT%{_sysconfdir}/%{plugin}.cfg
 
 %clean
 rm -rf $RPM_BUILD_ROOT

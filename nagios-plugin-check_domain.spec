@@ -1,12 +1,12 @@
 %define		plugin	check_domain
 Summary:	Nagios plugin for checking a domain name expiration date
 Name:		nagios-plugin-%{plugin}
-Version:	1.2.9
+Version:	1.4.5
 Release:	1
 License:	GPL
 Group:		Networking
 Source0:	https://github.com/glensc/nagios-plugin-check_domain/archive/v%{version}/%{plugin}-%{version}.tar.gz
-# Source0-md5:	ed74468321e073606238493cd72601a4
+# Source0-md5:	0348a46cb9919a93c897c34f342d24db
 URL:		https://github.com/glensc/nagios-plugin-check_domain
 Requires:	whois
 BuildArch:	noarch

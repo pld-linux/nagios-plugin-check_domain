@@ -1,12 +1,12 @@
 %define		plugin	check_domain
 Summary:	Nagios/Icinga plugin for checking a domain name expiration date
 Name:		nagios-plugin-%{plugin}
-Version:	1.6.0
+Version:	1.7.1
 Release:	1
 License:	GPL
 Group:		Networking
 Source0:	https://github.com/glensc/monitoring-plugin-check_domain/archive/v%{version}/%{plugin}-%{version}.tar.gz
-# Source0-md5:	943b302f1b13c98a78cfb80412fffad2
+# Source0-md5:	e3b1ad2dc9bccc15b34f1700beb917a1
 URL:		https://github.com/glensc/monitoring-plugin-check_domain
 Requires:	whois
 BuildArch:	noarch
